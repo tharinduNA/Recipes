@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="@string/first_fragment_label"
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.tharindu.recipes.ui.home.HomeFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/DetailFragment"
+        android:name="com.tharindu.recipes.ui.detail.DetailFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_detail">
+
+        <action
+            android:id="@+id/action_DetailFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            app:popUpTo="@id/HomeFragment"
+            app:popUpToInclusive="true"/>
+
+        <argument
+            android:name="recipeDomain"
+            app:argType="com.tharindu.recipes.domain.entity.RecipeDomain"
+            app:nullable="false" />
+
+    </fragment>
+</navigation>

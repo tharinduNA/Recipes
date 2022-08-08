@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tharindu.recipes.ui.detail.DetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.detail.DetailFragment">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.recipeDomain.name}"
+                android:textSize="@dimen/detail_screen_font_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:onClick="@{() -> viewModel.backButton()}"
+                android:text="@string/back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgDish"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cover_photo_height"
+                android:layout_margin="5dp"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{viewModel.recipeDomain.imageUrl}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/detail_timer_margin_top"
+                android:layout_marginEnd="@dimen/detail_timer_margin_end"
+                android:text="@{viewModel.timer + ' ' + @string/detail_minutes}"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/detail_screen_font_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgDish" />
+
+            <TextView
+                android:id="@+id/tvIngredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_timer_margin_end"
+                android:layout_marginTop="@dimen/detail_timer_margin_top"
+                android:text="@string/detail_ingredients"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/detail_screen_font_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTimer" />
+
+            <TextView
+                android:id="@+id/tvIngredientsDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_ingredients_margin_start"
+                android:layout_marginTop="@dimen/detail_timer_margin_top"
+                android:layout_marginEnd="@dimen/detail_timer_margin_end"
+                android:text="@{viewModel.ingredients}"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/detail_screen_font_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIngredients" />
+
+            <TextView
+                android:id="@+id/tvSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_timer_margin_end"
+                android:layout_marginTop="@dimen/detail_timer_margin_top"
+                android:text="@string/detail_steps"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/detail_screen_font_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIngredientsDetails" />
+
+            <TextView
+                android:id="@+id/tvStepsDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_ingredients_margin_start"
+                android:layout_marginTop="@dimen/detail_timer_margin_top"
+                android:layout_marginEnd="@dimen/detail_timer_margin_end"
+                android:text="@{viewModel.steps}"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/detail_screen_font_description"
+                android:padding="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSteps" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
