@@ -17,11 +17,12 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/rootView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:foreground="?selectableItemBackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             card_view:cardBackgroundColor="@color/card_background"
             card_view:cardCornerRadius="@dimen/card_corner_radius"
             card_view:contentPadding="10dp">
@@ -35,7 +36,7 @@
 
                 <TextView
                     android:id="@+id/recipeTitle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@{item.name}"
                     android:textColor="@android:color/white"
@@ -44,14 +45,16 @@
                     android:layout_marginBottom="5dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     tools:text="Toyota" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/cover_photo_height"
                     app:cardCornerRadius="@dimen/card_corner_radius"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/recipeTitle">
 
                     <ImageView
