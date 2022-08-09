@@ -23,7 +23,7 @@ class RecipeProvider @Inject constructor(
     @ApplicationContext private val context: Context,
     private val recipeMapper: RecipeMapper
 ) : RecipeRepository {
-    override fun getRecipes(): Flow<Result<List<RecipeDomain>>> =
+    override suspend fun getRecipes(): Flow<Result<List<RecipeDomain>>> =
         flow {
             emit(
                 withContext(Dispatchers.IO) {

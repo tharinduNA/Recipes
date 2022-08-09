@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class RecipeUseCase @Inject constructor(private val recipeRepository: RecipeRepository) {
-    fun getRecipes(): Flow<Result<List<RecipeDomain>>> = recipeRepository.getRecipes()
+    suspend fun getRecipes(): Flow<Result<List<RecipeDomain>>> = recipeRepository.getRecipes()
 }
