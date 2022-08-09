@@ -22,17 +22,18 @@
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.recipeDomain.name}"
                 android:textSize="@dimen/detail_screen_font_title"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
             <Button
                 android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:onClick="@{() -> viewModel.backButton()}"
@@ -42,7 +43,7 @@
 
             <ImageView
                 android:id="@+id/imgDish"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="@dimen/cover_photo_height"
                 android:layout_margin="5dp"
                 android:scaleType="centerCrop"
@@ -53,7 +54,7 @@
 
             <TextView
                 android:id="@+id/tvTimer"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/detail_timer_margin_top"
                 android:layout_marginEnd="@dimen/detail_timer_margin_end"
@@ -65,7 +66,7 @@
 
             <TextView
                 android:id="@+id/tvIngredients"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/detail_timer_margin_end"
                 android:layout_marginTop="@dimen/detail_timer_margin_top"
@@ -77,7 +78,7 @@
 
             <TextView
                 android:id="@+id/tvIngredientsDetails"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/detail_ingredients_margin_start"
                 android:layout_marginTop="@dimen/detail_timer_margin_top"
@@ -86,11 +87,12 @@
                 android:textAlignment="textStart"
                 android:textSize="@dimen/detail_screen_font_description"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvIngredients" />
+                app:layout_constraintTop_toBottomOf="@id/tvIngredients"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/tvSteps"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/detail_timer_margin_end"
                 android:layout_marginTop="@dimen/detail_timer_margin_top"
@@ -102,7 +104,7 @@
 
             <TextView
                 android:id="@+id/tvStepsDetails"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/detail_ingredients_margin_start"
                 android:layout_marginTop="@dimen/detail_timer_margin_top"
@@ -110,9 +112,9 @@
                 android:text="@{viewModel.steps}"
                 android:textAlignment="textStart"
                 android:textSize="@dimen/detail_screen_font_description"
-                android:padding="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSteps" />
+                app:layout_constraintTop_toBottomOf="@id/tvSteps"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
