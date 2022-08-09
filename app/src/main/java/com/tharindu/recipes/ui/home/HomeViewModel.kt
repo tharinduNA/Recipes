@@ -23,11 +23,15 @@ class HomeViewModel @Inject constructor(private val recipeUseCase: RecipeUseCase
         get() = _showLoading
     private val _showLoading = MutableLiveData<Boolean>()
 
+    val error: MutableLiveData<Exception>
+        get() = _error
+    private val _error = MutableLiveData<Exception>()
+
     init {
         loadData()
     }
 
-    private fun loadData() {
+    fun loadData() {
         viewModelScope.launch {
             recipeUseCase.getRecipes()
                 .onStart {
@@ -39,7 +43,7 @@ class HomeViewModel @Inject constructor(private val recipeUseCase: RecipeUseCase
                 .collect {
                     when (it) {
                         is Result.Success -> _data.postValue(it.data)
-                        else -> Result.Error(Exception())
+                        else -> _error.postValue(Exception())
                     }
                 }
         }
